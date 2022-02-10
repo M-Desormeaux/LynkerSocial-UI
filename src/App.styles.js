@@ -30,5 +30,4 @@ export const ContentWrapper = styled.div`
 export const PaddedWrapper = styled.div`
   padding: 8px;
   padding-bottom: 0;
-  min-height: 100%;
 `;

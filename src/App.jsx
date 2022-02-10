@@ -5,15 +5,18 @@ import {
   GlobalStyle,
   PaddedWrapper,
 } from "./App.styles";
-import { Lynk } from "./components/Lynk/Lynk";
 import { Navbar } from "./components/Navbar/Navbar";
+import { AuthProvider } from "./context/AuthContext";
+import { CommunityPage } from "./pages/CommunityPage";
+import { HomePage } from "./pages/HomePage";
+import { UserPage } from "./pages/UserPage";
 
 // Note for dynamic routes
 // post.map(user => (<Link to={'/u/' + user.id}))
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <GlobalStyle />
       <Center>
         <ContentWrapper>
@@ -21,15 +24,14 @@ const App = () => {
           <PaddedWrapper>
             <Routes>
               {/* <Route path="/" element={<Homepage />} /> */}
-              <Route path="/" element={<p>Home</p>} />
-              <Route path="/u/:id" element={<p>User Page</p>} />
-              <Route path="/c/:id" element={<p>Community Page</p>} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/u/:id" element={<UserPage />} />
+              <Route path="/c/:id" element={<CommunityPage />} />
             </Routes>
-            <Lynk />
           </PaddedWrapper>
         </ContentWrapper>
       </Center>
-    </>
+    </AuthProvider>
   );
 };
 

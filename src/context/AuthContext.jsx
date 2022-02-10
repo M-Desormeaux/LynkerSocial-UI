@@ -1,18 +1,28 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-// check context
+// Create auth context
 const AuthContext = createContext(undefined);
 
-// update context
-const AuthDispach = createContext(undefined);
+// Provider wrapper pattern
+export const AuthProvider = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(false);
 
-const AuthProvider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState({ isLoggedIn: false });
-  return (
-    <AuthContext.Provider value={isAuth}>
-      <AuthDispach.Provider value={setIsAuth}>{children}</AuthDispach.Provider>
-    </AuthContext.Provider>
-  );
+  // pull in all states and setStates in the ctx, to be passed down
+  const ctx = {
+    isAuth,
+    setIsAuth,
+  };
+
+  return <AuthContext.Provider value={ctx}>{children}</AuthContext.Provider>;
 };
 
-export { AuthContext, AuthDispach, AuthProvider };
+export const useAuthContext = () => {
+  // wee shared context
+  const ctx = useContext(AuthContext);
+
+  if (!ctx) {
+    throw new Error("Auth Context isn't available, you messed up");
+  }
+
+  return ctx;
+};
