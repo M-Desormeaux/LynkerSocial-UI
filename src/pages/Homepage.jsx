@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Lynk } from "../components/Lynk/Lynk";
 import { UserCard } from "../components/UserCard/UserCard";
 import { useGet } from "../Hooks/useGet";
