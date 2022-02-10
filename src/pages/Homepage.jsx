@@ -5,7 +5,6 @@ import { useGet } from "../Hooks/useGet";
 
 export const HomePage = () => {
   const { data, isLoaded } = useGet("/api/Post");
-  console.log(data);
 
   return (
     <>
