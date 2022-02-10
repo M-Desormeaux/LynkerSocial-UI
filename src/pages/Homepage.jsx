@@ -1,24 +1,15 @@
 import { useEffect, useState } from "react";
 import { Lynk } from "../components/Lynk/Lynk";
 import { UserCard } from "../components/UserCard/UserCard";
+import { useGet } from "../Hooks/useGet";
 
 export const HomePage = () => {
-  const [allPosts, setAllPosts] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    fetch("/api/Post")
-      .then((res) => res.json())
-      .then((result) => {
-        setAllPosts(result);
-        setIsLoaded(true);
-      });
-  }, []);
+  const { data, isLoaded } = useGet("/api/Post");
 
   return (
     <>
       <UserCard name="Tom" score={9001} />
-      {isLoaded &&
-        allPosts.map((post, index) => <Lynk key={index} {...post} />)}
+      {isLoaded && data.map((post, index) => <Lynk key={index} {...post} />)}
     </>
   );
 };
