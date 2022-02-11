@@ -16,8 +16,8 @@ export const Navbar = () => {
         }}
       >
         <Link to={"/"}>Home</Link>
-        <Link to={"/u/" + 42}>User 42</Link>
-        <Link to={"/c/" + "School"}>The School</Link>
+        <Link to={"/u/"}>Users</Link>
+        <Link to={"/c/"}>Communities</Link>
       </div>
       <H1 size="l" bold>
         {isAuth ? "True" : "False"}

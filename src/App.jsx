@@ -8,11 +8,8 @@ import {
 import { Navbar } from "./components/Navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import { CommunityPage } from "./pages/CommunityPage";
-import { HomePage } from "./pages/HomePage";
+import { HomePage } from "./pages/Homepage";
 import { UserPage } from "./pages/UserPage";
-
-// Note for dynamic routes
-// post.map(user => (<Link to={'/u/' + user.id}))
 
 const App = () => {
   return (
@@ -25,8 +22,8 @@ const App = () => {
             <Routes>
               {/* <Route path="/" element={<Homepage />} /> */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/u/:id" element={<UserPage />} />
-              <Route path="/c/:id" element={<CommunityPage />} />
+              <Route path="/u/" element={<UserPage />} />
+              <Route path="/c/" element={<CommunityPage />} />
             </Routes>
           </PaddedWrapper>
         </ContentWrapper>
