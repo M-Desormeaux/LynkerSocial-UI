@@ -8,7 +8,7 @@ export const HomePage = () => {
   return (
     <>
       <UserCard name="Tom" score={9001} />
-      {isLoaded && data.map((post, index) => <Lynk key={index} {...post} />)}
+      {isLoaded && data.map((data, index) => <Lynk key={index} {...data} />)}
     </>
   );
 };
