@@ -1,4 +1,4 @@
-import { CommunityLynk } from "../components/Lynk/CommunityLynk/CommunityLynk";
+import { CommunityLynk } from "../components/Lynk/CommunityLynk";
 import { useGet } from "../Hooks/useGet";
 
 export const CommunityPage = () => {

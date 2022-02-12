@@ -1,4 +1,4 @@
-import { Lynk } from "../components/Lynk/Lynk";
+import { PostLynk } from "../components/Lynk/PostLynk";
 import { UserCard } from "../components/UserCard/UserCard";
 import { useGet } from "../Hooks/useGet";
 
@@ -8,7 +8,8 @@ export const HomePage = () => {
   return (
     <>
       <UserCard name="Tom" score={9001} />
-      {isLoaded && data.map((data, index) => <Lynk key={index} {...data} />)}
+      {isLoaded &&
+        data.map((data, index) => <PostLynk key={index} {...data} />)}
     </>
   );
 };

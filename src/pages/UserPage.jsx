@@ -1,4 +1,4 @@
-import { UserLynk } from "../components/Lynk/UserLynk/UserLynk";
+import { UserLynk } from "../components/Lynk/UserLynk";
 import { useGet } from "../Hooks/useGet";
 
 export const UserPage = () => {
