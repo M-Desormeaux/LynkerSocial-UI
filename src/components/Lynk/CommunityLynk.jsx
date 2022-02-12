@@ -1,10 +1,3 @@
-// Picture w/ Default
-// Title
-// Text
-// Username
-// Community
-// Post Date
-
 import { ImageWrapper, ShellImage } from "../Generic.styles";
 import { H2, P } from "../Typography/Typography.styles";
 import {
@@ -14,8 +7,8 @@ import {
   LynkWrapper,
 } from "./Lynk.styles";
 
-export const Lynk = (props) => {
-  const { user, community, title, body, creationDate } = props;
+export const CommunityLynk = (props) => {
+  const { user, creationDate, description, body } = props;
   const date = creationDate ? new Date(creationDate) : new Date();
   const postDate = `${
     date.getMonth() + 1
@@ -29,13 +22,12 @@ export const Lynk = (props) => {
         </ImageWrapper>
         <LynkPostContent>
           <LynkPadded>
-            <H2 size="l">{title}</H2>
+            <H2 size="m">{user.name}</H2>
             <P>{body}</P>
           </LynkPadded>
           <LynkPadded>
             <LynkPostInfo>
-              <P size="s">{user.name}</P>
-              <P size="s">{community.name}</P>
+              <P size="s">{description}</P>
               <P size="s">{postDate}</P>
             </LynkPostInfo>
           </LynkPadded>
