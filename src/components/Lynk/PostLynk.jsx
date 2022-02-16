@@ -1,3 +1,4 @@
+import { dateFormat } from "../../utils/utilFuncs";
 import { ImageWrapper, ShellImage } from "../Generic.styles";
 import { H2, P } from "../Typography/Typography.styles";
 import {
@@ -9,10 +10,6 @@ import {
 
 export const PostLynk = (props) => {
   const { user, community, title, body, creationDate } = props;
-  const date = creationDate ? new Date(creationDate) : new Date();
-  const postDate = `${
-    date.getMonth() + 1
-  } | ${date.getDate()} | ${date.getFullYear()}`;
 
   return (
     <>
@@ -29,7 +26,7 @@ export const PostLynk = (props) => {
             <LynkPostInfo>
               <P size="s">{user.name}</P>
               <P size="s">{community.name}</P>
-              <P size="s">{postDate}</P>
+              <P size="s">{dateFormat(creationDate)}</P>
             </LynkPostInfo>
           </LynkPadded>
         </LynkPostContent>
